@@ -9,6 +9,7 @@
 // except according to those terms.
 
 // aux-build:xcrate.rs
+// rustc-env:RUST_LOG=info
 
 #![feature(extern_in_paths)]
 
@@ -20,4 +21,4 @@ use extern::*; //~ ERROR unresolved import `extern::*`
 fn main() {
     let s = extern::xcrate; //~ ERROR expected value, found module `extern::xcrate`
                             //~^ NOTE not a value
-}
+}   //~ ERROR must fail kthxbye

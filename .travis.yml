@@ -13,10 +13,10 @@ matrix:
   include:
     # Images used in testing PR and try-build should be run first.
     - env: IMAGE=x86_64-gnu-llvm-3.9 RUST_BACKTRACE=1
-      if: type = pull_request OR branch = auto
+      if: branch = auto
 
     - env: IMAGE=dist-x86_64-linux DEPLOY=1
-      if: branch = try OR branch = auto
+      if: branch = auto
 
     # "alternate" deployments, these are "nightlies" but have LLVM assertions
     # turned on, they're deployed to a different location primarily for
@@ -57,7 +57,7 @@ matrix:
         NO_DEBUG_ASSERTIONS=1
       os: osx
       osx_image: xcode8.3
-      if: branch = auto
+      #if: branch = auto
 
     - env: >
         RUST_CHECK_TARGET=check
